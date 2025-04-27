@@ -159,18 +159,9 @@ void ALab06Character::BeginPlay() {
 		}
 	}
 
-	CapsuleMesh = FindComponentByClass<UStaticMeshComponent>();
-	CapsuleMesh->OnComponentBeginOverlap.AddDynamic(this, &ALab06Character::OnOverlapBegin);
-	CapsuleMesh->SetGenerateOverlapEvents(true);
-
 	
 
 }
 void ALab06Character::StartSprint() { GetCharacterMovement()->MaxWalkSpeed = SprintSpeed; }
 void ALab06Character::StopSprint() { GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
 
-void  ALab06Character::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
-	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
-
-	HUD->UpdateScore(8);
-}

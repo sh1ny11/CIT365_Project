@@ -48,8 +48,6 @@ class ALab06Character : public ACharacter
 public:
 	ALab06Character();
 
-	UStaticMeshComponent* CapsuleMesh;
-
 	UPROPERTY()
 	UMyUserWidget* HUD;
 
@@ -91,15 +89,5 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-
-	UFUNCTION()
-	void OnOverlapBegin(
-		class UPrimitiveComponent* OverlappedComp,
-		class AActor* OtherActor,
-		class UPrimitiveComponent* OtherComp,
-		int32 OtherBodyIndex,
-		bool bFromSweep,
-		const FHitResult& SweepResult);
-
 };
 

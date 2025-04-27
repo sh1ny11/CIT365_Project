@@ -1,13 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{A34724D2-4AB7-BA56-469D-6982E519022E}",
+	"EngineAssociation": "{FA272B93-430B-4C9D-A046-8D9B5DEF269F}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "Lab06",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"UMG"
+			]
 		}
 	],
 	"Plugins": [

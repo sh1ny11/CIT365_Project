@@ -12,6 +12,7 @@ class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
+class UMyUserWidget;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -46,6 +47,14 @@ class ALab06Character : public ACharacter
 
 public:
 	ALab06Character();
+
+	UStaticMeshComponent* CapsuleMesh;
+
+	UPROPERTY()
+	UMyUserWidget* HUD;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UMyUserWidget> WidgetClass;
 	
 
 protected:
@@ -82,6 +91,15 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	UFUNCTION()
+	void OnOverlapBegin(
+		class UPrimitiveComponent* OverlappedComp,
+		class AActor* OtherActor,
+		class UPrimitiveComponent* OtherComp,
+		int32 OtherBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
 
 };
 

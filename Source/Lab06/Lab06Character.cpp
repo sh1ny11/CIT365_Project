@@ -10,6 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "MyUserWidget.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -65,6 +66,7 @@ ALab06Character::ALab06Character()
 }
 
 //////////////////////////////////////////////////////////////////////////
+
 // Input
 
 void ALab06Character::NotifyControllerChanged()
@@ -145,6 +147,30 @@ void ALab06Character::Look(const FInputActionValue& Value)
 	}
 }
 
-void ALab06Character::BeginPlay() { Super::BeginPlay(); GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
+void ALab06Character::BeginPlay() { 
+	
+	Super::BeginPlay(); 
+	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; 
+
+	if (WidgetClass) {
+		HUD = CreateWidget<UMyUserWidget>(GetWorld(), WidgetClass);
+		if (HUD) {
+			HUD->AddToViewport();
+		}
+	}
+
+	CapsuleMesh = FindComponentByClass<UStaticMeshComponent>();
+	CapsuleMesh->OnComponentBeginOverlap.AddDynamic(this, &ALab06Character::OnOverlapBegin);
+	CapsuleMesh->SetGenerateOverlapEvents(true);
+
+	
+
+}
 void ALab06Character::StartSprint() { GetCharacterMovement()->MaxWalkSpeed = SprintSpeed; }
 void ALab06Character::StopSprint() { GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
+
+void  ALab06Character::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
+	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
+
+	HUD->UpdateScore(8);
+}

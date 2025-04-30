@@ -2,7 +2,7 @@
 
 
 #include "PointOne.h"
-#include "MyUserWidget.h"
+#include "Lab06Character.h"
 
 // Sets default values
 APointOne::APointOne()
@@ -11,6 +11,8 @@ APointOne::APointOne()
 	PrimaryActorTick.bCanEverTick = true;
 
 }
+
+int32 points = 0;
 
 // Called when the game starts or when spawned
 void APointOne::BeginPlay()
@@ -21,6 +23,8 @@ void APointOne::BeginPlay()
 	SphereMesh = FindComponentByClass<UStaticMeshComponent>();
 	SphereMesh->OnComponentBeginOverlap.AddDynamic(this, &APointOne::OnOverlapBegin);
 	SphereMesh->SetGenerateOverlapEvents(true);
+
+	
 	
 }
 
@@ -35,6 +39,8 @@ void APointOne::Tick(float DeltaTime)
 void APointOne::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
 
-	//HUD->UpdateScore(8);
+	points += 1;
+
+	//HUD->ChangeUI(points);
 }
 

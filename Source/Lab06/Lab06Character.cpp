@@ -165,3 +165,8 @@ void ALab06Character::BeginPlay() {
 void ALab06Character::StartSprint() { GetCharacterMovement()->MaxWalkSpeed = SprintSpeed; }
 void ALab06Character::StopSprint() { GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
 
+void ALab06Character::ChangeUI(int32 counts) {
+	HUD->UpdateScore(counts);
+}
+
+

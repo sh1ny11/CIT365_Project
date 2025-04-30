@@ -18,7 +18,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UpdateScore(int32 Count);
 
-protected:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* ScoreText;
+
+protected:
+	
 };

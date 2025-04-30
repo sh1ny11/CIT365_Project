@@ -7,7 +7,7 @@
 #include "PointOne.generated.h"
 
 //forward declaration of user widget class
-class UMyUserWidget;
+class ALab06Character;
 
 UCLASS()
 class LAB06_API APointOne : public AActor
@@ -23,10 +23,10 @@ public:
 
 	//creates reference to the MyUserWidget class
 	UPROPERTY()
-	UMyUserWidget* HUD;
+	ALab06Character* HUD;
 	//allows assignment of widget BP in editor
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<UMyUserWidget> WidgetClass;
+	TSubclassOf<ALab06Character> WidgetClass;
 
 protected:
 	// Called when the game starts or when spawned

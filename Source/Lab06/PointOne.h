@@ -7,7 +7,7 @@
 #include "PointOne.generated.h"
 
 //forward declaration of user widget class
-class ALab06Character;
+class UMyUserWidget;
 
 UCLASS()
 class LAB06_API APointOne : public AActor
@@ -21,12 +21,6 @@ public:
 	//Create reference to the sphere static mesh component of the actor
 	UStaticMeshComponent* SphereMesh;
 
-	//creates reference to the MyUserWidget class
-	UPROPERTY()
-	ALab06Character* HUD;
-	//allows assignment of widget BP in editor
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<ALab06Character> WidgetClass;
 
 protected:
 	// Called when the game starts or when spawned
@@ -45,5 +39,5 @@ public:
 		int32 OtherBodyIndex,
 		bool bFromSweep,
 		const FHitResult& SweepResult);
-
+	
 };

@@ -48,6 +48,8 @@ class ALab06Character : public ACharacter
 public:
 	ALab06Character();
 
+	
+
 	UPROPERTY()
 	UMyUserWidget* HUD;
 
@@ -90,7 +92,7 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-	void ChangeUI(int32 points);
+	
 	
 };
 

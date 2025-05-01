@@ -15,11 +15,13 @@ class LAB06_API UMyUserWidget : public UUserWidget
 	GENERATED_BODY()
 	
 public:
-	UFUNCTION(BlueprintCallable)
-	void UpdateScore(int32 Count);
+	//UFUNCTION(BlueprintCallable)
+	//void UpdateScore();
 
-	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* ScoreText;
+	//UPROPERTY(meta = (BindWidget))
+	//class UTextBlock* ScoreText;
+
+	//int32 score = 0;
 
 protected:
 	

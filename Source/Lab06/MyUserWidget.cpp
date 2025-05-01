@@ -4,8 +4,12 @@
 #include "MyUserWidget.h"
 #include "Components/TextBlock.h"
 
-void UMyUserWidget::UpdateScore(int32 Count) {
+
+
+/*void UMyUserWidget::UpdateScore() {
+	score += 1;
+
 	if (ScoreText) {
-		ScoreText->SetText(FText::FromString(TEXT("testing")));
+		ScoreText->SetText(FText::Format(FText::FromString("Score: {0}"), FText::AsNumber(score)));
 	}
-}
+}*/

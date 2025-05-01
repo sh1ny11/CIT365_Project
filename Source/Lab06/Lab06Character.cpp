@@ -152,6 +152,7 @@ void ALab06Character::BeginPlay() {
 	Super::BeginPlay(); 
 	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; 
 
+
 	if (WidgetClass) {
 		HUD = CreateWidget<UMyUserWidget>(GetWorld(), WidgetClass);
 		if (HUD) {
@@ -165,8 +166,6 @@ void ALab06Character::BeginPlay() {
 void ALab06Character::StartSprint() { GetCharacterMovement()->MaxWalkSpeed = SprintSpeed; }
 void ALab06Character::StopSprint() { GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
 
-void ALab06Character::ChangeUI(int32 counts) {
-	HUD->UpdateScore(counts);
-}
+
 
 

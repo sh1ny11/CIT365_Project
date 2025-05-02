@@ -22,6 +22,7 @@ void ARedOrb::BeginPlay()
 	SphereMesh->OnComponentBeginOverlap.AddDynamic(this, &ARedOrb::OnOverlapBegin);
 	SphereMesh->SetGenerateOverlapEvents(true);
 
+	//adds the widget to the viewport, allows it to be accessed
 	if (WidgetClass) {
 		HUD = CreateWidget<URedOrbWidget>(GetWorld(), WidgetClass);
 		if (HUD) {
@@ -38,9 +39,8 @@ void ARedOrb::Tick(float DeltaTime)
 
 }
 
-//function for overlap events with Actor
+//overlap event function, activates when the player touvhes the actor - updates the widget and destroys THIS actor
 void ARedOrb::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
-	UE_LOG(LogTemp, Warning, TEXT("COLLISION DETECTED"));
 
 	HUD->ChangeText();
 

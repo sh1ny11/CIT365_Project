@@ -35,7 +35,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//ufunction definition for the overlap event for POINT increments
+	//ufunction definition for the overlap event for updating the UI
 	UFUNCTION()
 	void OnOverlapBegin(
 		class UPrimitiveComponent* OverlappedComp,

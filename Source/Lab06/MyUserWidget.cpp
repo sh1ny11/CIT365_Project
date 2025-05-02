@@ -2,14 +2,5 @@
 
 
 #include "MyUserWidget.h"
-#include "Components/TextBlock.h"
 
 
-
-/*void UMyUserWidget::UpdateScore() {
-	score += 1;
-
-	if (ScoreText) {
-		ScoreText->SetText(FText::Format(FText::FromString("Score: {0}"), FText::AsNumber(score)));
-	}
-}*/

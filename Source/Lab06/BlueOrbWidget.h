@@ -18,7 +18,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ChangeText();
-
+	//get reference to the UpdateText variable
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* UpdateText;
 	

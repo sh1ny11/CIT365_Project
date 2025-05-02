@@ -4,28 +4,28 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BlueOrb.generated.h"
+#include "FinalOrb.generated.h"
 
-class UBlueOrbWidget;
+class UWinWidget;
 
 UCLASS()
-class LAB06_API ABlueOrb : public AActor
+class LAB06_API AFinalOrb : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ABlueOrb();
+	AFinalOrb();
 
 	//Create reference to the sphere static mesh component of the actor
 	UStaticMeshComponent* SphereMesh;
 
 	//reference the widget element
 	UPROPERTY()
-	UBlueOrbWidget* HUD;
+	UWinWidget* HUD;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<UBlueOrbWidget> WidgetClass;
+	TSubclassOf<UWinWidget> WidgetClass;
 
 protected:
 	// Called when the game starts or when spawned

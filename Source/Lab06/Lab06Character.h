@@ -7,6 +7,7 @@
 #include "Logging/LogMacros.h"
 #include "Lab06Character.generated.h"
 
+//forward declarations
 class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
@@ -49,7 +50,7 @@ public:
 	ALab06Character();
 
 	
-
+	//create reference to user widget
 	UPROPERTY()
 	UMyUserWidget* HUD;
 
@@ -67,6 +68,7 @@ protected:
 
 	void BeginPlay();
 
+	//create start and stop sprint functions
 	void StartSprint();
 
 	void StopSprint();

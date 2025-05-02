@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BlueOrb.h"
-#include "BlueOrbWidget.h"
+#include "FinalOrb.h"
+#include "WinWidget.h"
 
 // Sets default values
-ABlueOrb::ABlueOrb()
+AFinalOrb::AFinalOrb()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -13,18 +13,18 @@ ABlueOrb::ABlueOrb()
 }
 
 // Called when the game starts or when spawned
-void ABlueOrb::BeginPlay()
+void AFinalOrb::BeginPlay()
 {
 	Super::BeginPlay();
 
 	//gets the sphere mesh component and sets it to do overlap events with other actors
 	SphereMesh = FindComponentByClass<UStaticMeshComponent>();
-	SphereMesh->OnComponentBeginOverlap.AddDynamic(this, &ABlueOrb::OnOverlapBegin);
+	SphereMesh->OnComponentBeginOverlap.AddDynamic(this, &AFinalOrb::OnOverlapBegin);
 	SphereMesh->SetGenerateOverlapEvents(true);
 
 	//adds the widget to the viewport, allows it to be accessed
 	if (WidgetClass) {
-		HUD = CreateWidget<UBlueOrbWidget>(GetWorld(), WidgetClass);
+		HUD = CreateWidget<UWinWidget>(GetWorld(), WidgetClass);
 		if (HUD) {
 			HUD->AddToViewport();
 		}
@@ -33,17 +33,19 @@ void ABlueOrb::BeginPlay()
 }
 
 // Called every frame
-void ABlueOrb::Tick(float DeltaTime)
+void AFinalOrb::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-//overlap event function, activates when the player touches the actor - updates the widget and destroys THIS actor
-void ABlueOrb::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
+//overlap event function, activates when the player touvhes the actor - updates the widget and destroys THIS actor
+void AFinalOrb::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 
 	HUD->ChangeText();
 
+	OtherActor->Destroy();
 	Destroy();
+
 }
 

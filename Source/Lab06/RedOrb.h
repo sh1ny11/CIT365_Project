@@ -21,6 +21,7 @@ public:
 	//Create reference to the sphere static mesh component of the actor
 	UStaticMeshComponent* SphereMesh;
 
+	//reference the widget element
 	UPROPERTY()
 	URedOrbWidget* HUD;
 

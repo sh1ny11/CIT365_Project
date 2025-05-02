@@ -44,6 +44,7 @@ ALab06Character::ALab06Character()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
 
+	//set walk and sprint speed variables
 	WalkSpeed = 200.f;
 	SprintSpeed = 500.f;
 
@@ -150,9 +151,10 @@ void ALab06Character::Look(const FInputActionValue& Value)
 void ALab06Character::BeginPlay() { 
 	
 	Super::BeginPlay(); 
+	//get walk speed
 	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; 
 
-
+	//assign widget to viewport
 	if (WidgetClass) {
 		HUD = CreateWidget<UMyUserWidget>(GetWorld(), WidgetClass);
 		if (HUD) {
@@ -163,6 +165,8 @@ void ALab06Character::BeginPlay() {
 	
 
 }
+
+//Start and stop sprint functions
 void ALab06Character::StartSprint() { GetCharacterMovement()->MaxWalkSpeed = SprintSpeed; }
 void ALab06Character::StopSprint() { GetCharacterMovement()->MaxWalkSpeed = WalkSpeed; }
 

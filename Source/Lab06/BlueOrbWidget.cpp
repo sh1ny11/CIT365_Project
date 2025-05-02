@@ -4,6 +4,7 @@
 #include "BlueOrbWidget.h"
 #include "Components/TextBlock.h"
 
+//function for changing the text in the widget UI
 void UBlueOrbWidget::ChangeText() {
 
 
